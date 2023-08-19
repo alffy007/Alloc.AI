@@ -14,5 +14,5 @@ async def start_command (update: Update, context: ContextTypes. DEFAULT_TYPE):
 if __name__ == '_main_' :
     print("Bot started")
     app = Application.builder(). token (TOKEN) .build()
-    app.add_handter (CommandHandler('start', start_command))
+    app.add_handler (CommandHandler('start', start_command))
     
