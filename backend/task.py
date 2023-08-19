@@ -5,9 +5,10 @@ cred = credentials.Certificate("serviceAccount.json")
 firebase_admin.initialize_app(cred) 
 db=firestore.client()
 
-def link(link):
-    taskid=110
-    data={taskid:link}
-    db.collection("task").document("taskid").set(data)
-    taskid+=1
-    return None
+def link(r,deadline,id):
+    idnum=1013
+    data={"id":id,"deadline":deadline,"work":r}
+    db.collection("tasks").document(str(idnum)).set(data)
+    idnum+=1
+    return "done"
+
