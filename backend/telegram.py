@@ -8,7 +8,8 @@ BOT_USERNAME= "@alloc_ai_bot"
 @bot.message_handler(commands=['leave'])
 def send_welcome(message):
     value=False
-    sentence.sent(value)
+    fun="avail"
+    sentence.sent(fun,value)
     sentence1="leave has been reported to HR"
     bot.reply_to(message,sentence1)
     
@@ -16,7 +17,8 @@ def send_welcome(message):
 @bot.message_handler(commands=['report'])
 def send_welcome(message):
     value=True
-    sentence.sent(value)
+    fun="avail"
+    sentence.sent(fun,value)
     sentence1="welcome back"
     bot.reply_to(message,sentence1)
 
@@ -30,6 +32,14 @@ def send_welcome(message):
 def send_welcome(message):
     value="DEADLINE"
     sentence1=sentence.receive(value)
+    bot.reply_to(message,sentence1)
+
+@bot.message_handler(commands=['completed'])
+def send_welcome(message):
+    value=True
+    fun="completed"
+    sentence.sent(fun,value)
+    sentence1="well done"
     bot.reply_to(message,sentence1)
 
 print("infinite pooling")
