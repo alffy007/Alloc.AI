@@ -1,7 +1,7 @@
 # Alloc.AI
 <h1 align="center">
   <br>
-  <img src="Alloc-AI-logos_black.png" alt="Markdownify" width="400">
+  <img src="logo.png" alt="Markdownify" width="400">
   <br>
   Alloc.AI
   <br>
