@@ -80,6 +80,7 @@ Furthermore, for hosting our project, we chose Railway. Railway is a cloud platf
     <br>
    </div>
    <br>
+    <h3>How manager enters work</h3>
    <div style="display:flex;" align="center">
     <img src="pic_2.jpg" alt="Screenshot" width="33%">
     <br>
