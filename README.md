@@ -65,7 +65,18 @@ Overall, Our innovative solution automates work allocation, real-time notificati
 
 ### Railway for Hosting
 Furthermore, for hosting our project, we chose Railway. Railway is a cloud platform that simplifies the deployment and management of web applications. By utilizing Railway for hosting, we were able to easily deploy our project and make it accessible to users over the internet. Railway's user-friendly interface and seamless setup process allowed us to integrate our project with their platform effortlessly. With Railway, we benefit from reliable hosting infrastructure and automatic scaling, ensuring that our application can handle incoming traffic effectively. 
- 
+
+ <h3>This is How it works</h3>
+     <br>
+   </div>
+      <div style="display:flex;" align="center">
+    <img src="simpflow.png" alt="Screenshot" width="33%">
+    <br>
+    </div>
+      <div style="display:flex;" align="center">
+    <img src="flow.png" alt="Screenshot" width="33%">
+    <br>
+   </div>
    <br>
    <div style="display:flex;" align="center">
     <img src="pic_2.jpg" alt="Screenshot" width="33%">
