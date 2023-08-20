@@ -2,9 +2,9 @@
 import React, { useEffect } from "react";
 import { useListVals } from "react-firebase-hooks/database";
 import  db  from "../firebase";
-import {collection,getDocs  } from "firebase/firestore";
+import {collection,doc,getDocs, updateDoc  } from "firebase/firestore";
 import { ref, set } from "firebase/database";
-
+import Swal from 'sweetalert2';
 
 import { useState } from "react";
 import Link from "next/link";
@@ -32,12 +32,15 @@ const containerStyle = {
 export default function Dashboard() {
     const [formattedCalls1, setFormattedCalls1] = useState<
     {
+      task: string;
+      id: any;
       items: any;
       name: string;
       taskid: string;
       phone: string;
       status: boolean;
       transcript: string;
+      complete:boolean;
       avail:string
       // ... Other properties
     }[]
@@ -57,6 +60,9 @@ export default function Dashboard() {
           status: docData.STATUS,
           transcript: docData.TECH,
           avail: docData.avail,
+          id:docData.ID,
+          task: docData.Task,
+          complete:docData.completed,
           items:[]
           // ... Include other properties here
         };
@@ -71,6 +77,28 @@ export default function Dashboard() {
   console.log('Formatted Calls 1:', formattedCalls1);
   
     // Your JSX and component code here
+
+    const handleUpdateStatus = async (documentId: string) => {
+        console.log(documentId)
+        const docRef = doc(db, 'WORKERS', documentId); // Replace 'documentId' with the actual ID of the document
+        const fieldToUpdate = 'avail';
+        const newValue = false; // Update with the new value
+    
+        try {
+          await updateDoc(docRef, {
+            [fieldToUpdate]: newValue,
+          });
+          Swal.fire(
+            'Availability Canceled!',
+            'completed!',
+            'success'
+          )
+          console.log('Field updated successfully');
+
+        } catch (error) {
+          console.error('Error updating field:', error);
+        }
+      };
 
     const [selectedOrderIndex, setSelectedOrderIndex] = useState(1);
     const [showOrderDetails, setShowOrderDetails] = useState(false);
@@ -273,7 +301,7 @@ export default function Dashboard() {
                                                             <div className="max-w-lg mx-auto">
                                                                 <div>
                                                                     <h2 className="text-md font-medium text-gray-900">
-                                                                        Order details
+                                                                        Task Details
                                                                     </h2>
                                                                 </div>
 
@@ -289,7 +317,7 @@ export default function Dashboard() {
                                                                                     />
                                                                                     <div className="ml-3">
                                                                                         <p className="text-sm font-medium text-gray-600">
-                                                                                            {call.transcript}
+                                                                                            {call.task}
                                                                                         </p>
                                                                                     </div>
                                                                                 </div>
@@ -299,8 +327,8 @@ export default function Dashboard() {
                                                                         <div className="px-5 py-4">
                                                                             <div className="flex items-center justify-between">
                                                                                 <span className="inline-flex items-center text-sm font-medium text-gray-900">
-                                                                                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 flex-shrink-0 mr-2"></div>
-                                                                                    Open
+                                                                                    <div className={`w-2.5 h-2.5 rounded-full ${call.complete ? 'bg-green-500' : 'bg-yellow-500'}  flex-shrink-0 mr-2`}></div>
+                                                                                   {call.complete ? "Completed" : "In review"} 
                                                                                 </span>
 
                                                                                 <p className="text-sm font-medium text-right text-gray-500">
@@ -313,80 +341,19 @@ export default function Dashboard() {
                                                             </div>
                                                         </div>
 
-                                                        <div className="py-12 col-span-2 bg-white sm:py-16 lg:py-2">
-                                                            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-3">
-                                                                <div>
-                                                                    <p className="text-md font-medium text-gray-900">
-                                                                        Latest Transactions
-                                                                    </p>
-                                                                </div>
-
-                                                                <div className="mt-6 ring-1 ring-gray-300 rounded-2xl">
-                                                                    <table className="min-w-full lg:divide-y lg:divide-gray-200">
-                                                                        <thead className="hidden lg:table-header-group">
-                                                                            <tr>
-                                                                                <td
-                                                                                    width="50%"
-                                                                                    className="px-6 py-4 text-sm font-medium text-gray-400 whitespace-normal"
-                                                                                >
-                                                                                    Product
-                                                                                </td>
-
-                                                                                <td className="px-6 py-4 text-sm font-medium text-gray-400 whitespace-normal">
-                                                                                    Quantity
-                                                                                </td>
-                                                                            </tr>
-                                                                        </thead>
-
-                                                                        <tbody className="divide-y divide-gray-200">
-                                                                            {call.items.map(
-                                                                                (
-                                                                                    item: any,
-
-                                                                                    itemIndex: any
-                                                                                ) => (
-                                                                                    <tr key={itemIndex}>
-                                                                                        <td className="px-6 py-4 text-sm font-normal text-gray-900 whitespace-nowrap">
-                                                                                            {item.itemName}
-                                                                                        </td>
-
-                                                                                        <td className="hidden px-6 py-4 text-sm font-normal text-gray-900 lg:table-cell whitespace-nowrap">
-                                                                                            {item.quantity}
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                )
-                                                                            )}
-                                                                            <tr>
-                                                                                <td className="px-6 py-4 text-sm font-bold text-gray-900 whitespace-nowrap">
-                                                                                    Total price{" "}
-                                                                                </td>
-
-                                                                                <td className="hidden px-6 py-4 text-sm font-bold text-gray-900 lg:table-cell whitespace-nowrap">
-                                                                                    54{" "}
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div className="py-12 col-span-1 bg-white sm:py-16 lg:py-2">
                                                             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-3">
                                                                 <div>
                                                                     <p className="text-md font-medium text-gray-900">
-                                                                        Action{" "}
+                                                                        Remove Availability{" "}
                                                                     </p>
                                                                 </div>
 
                                                                 <div className="mt-6  rounded-2xl">
+                                                               
                                                                     <button
-                                                                        onClick={() => { }}
-                                                                        className="bg-green-400 text-white px-9 py-2 rounded-2xl "
-                                                                    >
-                                                                        Accept
-                                                                    </button>
-                                                                    <button
-                                                                        onClick={() => { }}
+                                                                        onClick={() => handleUpdateStatus(call.id)}
                                                                         className="bg-red-400 mt-2 text-white px-9 py-2 rounded-2xl "
                                                                     >
                                                                         Cancel

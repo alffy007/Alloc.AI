@@ -8,11 +8,18 @@ import { ChangeEvent, Fragment, useState } from 'react';
 import Model from './model';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/router';
+
+
+interface SidebarProps {
+  handleNavigate: () => void;
+  handledashboard: () => void;
+}
+
+const sidebar: React.FC<SidebarProps> = ({ handleNavigate,handledashboard}) => {
 
 
 
-
-const sidebar = () => {
   const [showModal, setShowModal] = useState(false);
   const [typedData1, setTypedData1] = useState<string>('');
   const [typedData2, setTypedData2] = useState<string>('');
@@ -21,7 +28,7 @@ const sidebar = () => {
   const handleTextAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTypedData1(event.target.value);
   };
-  
+
   const handleInputChange1 = (event: { target: { value: any; }; }) => {
     const newValue = event.target.value;
     setTypedData2(newValue);
@@ -31,13 +38,14 @@ const sidebar = () => {
   const handleInputChange2 = (event: { target: { value: any; }; }) => {
     const newValue = event.target.value;
     setTypedData3(newValue);
-    
+
   };
-  
+
   const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
   const API_URL = 'https://web-production-ecf9.up.railway.app/question';
 
   const handlePrintClick = async () => {
+
     console.log('Typed Data1:', typedData1);
     console.log('Typed value:', typedData2);
     console.log('Typed value:', typedData3);
@@ -47,6 +55,12 @@ const sidebar = () => {
         "deadline": typedData2,
         "id": typedData3
       });
+      
+      console.log('Server Response:', response.data);
+
+      setTypedData1('');
+      setTypedData2('');
+      setTypedData3('');
       Swal.fire({
         title: 'Do you want to save the changes?',
         showDenyButton: true,
@@ -60,13 +74,11 @@ const sidebar = () => {
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info')
         }
-      console.log('Server Response:', response.data);
-     
-        setTypedData1('');
-        setTypedData2('');
-        setTypedData3('');
-        setShowModal(false)
+
       })
+      setShowModal(false)
+
+      
     } catch (error) {
       console.error('Error:', error);
     }
@@ -74,20 +86,20 @@ const sidebar = () => {
 
 
 
-  
+
 
   return (
     <Fragment>
       <div className="m-4 font-bold bg-white w-1/6 h-full p-3 flex-col rounded-3xl">
         <h1 className="text-xl pl-6 lg:text-5xl font-normal mt-11 ">Alloc.AI</h1>
-        <button type="button" className="text-white mt-5 bg-[#0e1111] lg:text-lg hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50  rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2">
+        <button type="button" className="text-white mt-5 bg-[#0e1111] lg:text-lg hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50  rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2" onClick={handledashboard}>
           Dashboard
           <div className="w-16"></div>
           <LuLayoutDashboard />
         </button>
-        <button type="button" className="text-white mt-5 bg-[#0e1111] lg:text-lg hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50  rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2">
-          Live minutes
-          <div className="w-12"></div>
+        <button type="button" className="text-white mt-5 bg-[#0e1111] lg:text-lg hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50  rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2" onClick={handleNavigate}>
+          Meeting Summary
+          <div className="w-8"></div>
           <BsListTask />
         </button>
         <Image
@@ -114,8 +126,8 @@ const sidebar = () => {
             onChange={handleTextAreaChange} ></textarea>
           <h3 className='text-xl font-semibold text-gray-900 mb-5'>Enter Deadline</h3>
           <input type="text"
-           value={typedData2}
-       onChange={handleInputChange1}
+            value={typedData2}
+            onChange={handleInputChange1}
             placeholder="Dealine..."
             inputMode='text' className='border border-neutral-300 rounded bg-neutral-300 w-full p-3' />
           <h3 className='text-xl  mt-2 font-semibold text-gray-900 mb-5'>Github issue code</h3>
