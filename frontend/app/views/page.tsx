@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import Minutespage from "../components/minutespage";
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
 
 
 

@@ -16,7 +16,7 @@ interface SidebarProps {
   handledashboard: () => void;
 }
 
-const sidebar: React.FC<SidebarProps> = ({ handleNavigate,handledashboard}) => {
+const Sidebar: React.FC<SidebarProps> = ({ handleNavigate,handledashboard}) => {
 
 
 
@@ -145,4 +145,4 @@ const sidebar: React.FC<SidebarProps> = ({ handleNavigate,handledashboard}) => {
   )
 }
 
-export default sidebar
+export default Sidebar

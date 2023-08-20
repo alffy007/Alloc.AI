@@ -7,7 +7,7 @@ interface MyObject {
   // other properties
 }
 
-const model = ({ isvisible, onClose ,children}: MyObject) => {
+const Model = ({ isvisible, onClose ,children}: MyObject) => {
   if (!isvisible) return null;
 
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -27,4 +27,4 @@ const model = ({ isvisible, onClose ,children}: MyObject) => {
   );
 };
 
-export default model;
+export default Model;

@@ -2,7 +2,7 @@ import { Button } from '@nextui-org/react';
 import React from 'react'
 import { BsFillMicFill, BsFillMicMuteFill } from "react-icons/bs";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-const minutespage = () => {
+const Minutespage = () => {
 
     const {
         transcript,
@@ -50,4 +50,4 @@ const minutespage = () => {
     );
 }
 
-export default minutespage
+export default Minutespage
