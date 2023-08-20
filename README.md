@@ -72,6 +72,8 @@ Furthermore, for hosting our project, we chose Railway. Railway is a cloud platf
       <div style="display:flex;" align="center">
     <img src="simpflow.png" alt="Screenshot" width="33%">
     <br>
+   <h3>In Detail</h3>
+     <br>
     </div>
       <div style="display:flex;" align="center">
     <img src="flow.png" alt="Screenshot" width="33%">
