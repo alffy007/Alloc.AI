@@ -33,7 +33,7 @@ This project was created for GTA-CodeStorm by Team Mark-10
 
 </p>
 <div align="center">
-  <img src="pic_1" alt="Screenshot" width="33%" />
+  <img src="pic_1.jpg" alt="Screenshot" width="33%" />
 </div>
 
 
