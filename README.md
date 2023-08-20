@@ -33,18 +33,15 @@ This project was created for GTA-CodeStorm by Team Mark-10
 
 </p>
 <div align="center">
-  <img src="dashboard.png" alt="Screenshot" width="33%" />
+  <img src="pic_1" alt="Screenshot" width="33%" />
 </div>
 
 
-## The Problem We Solve: Transforming your diet, one byte at a time
-Many people struggle to maintain a healthy diet due to various reasons such as lack of time, knowledge, and motivation. This often leads to unhealthy eating habits, weight gain, and other health-related issues. Additionally, it can be challenging for individuals to determine if the food they are consuming is appropriate for their dietary goals.
+## The Problem We Solve: Revolutionizing Work Efficiency and Collaboration, Byte by Byte.
+Addressing Inefficient Work Allocation and Communication: Many businesses face difficulties in effectively assigning tasks, tracking work progress, and maintaining transparent communication among team members. This can result in missed deadlines, unclear priorities, and reduced productivity. Moreover, managers struggle to evaluate employees' performance based on incomplete or outdated information. Our solution aims to automate and optimize task allocation, provide real-time work status updates, and facilitate seamless communication, ultimately enhancing collaboration and productivity within teams."
 
-Our solution is to develop an app that takes care of diet plans and uses AI to help the user to achieve their dietary goals. The app will use computer vision to help the user to check if the food captured fits their diet. The app will provide personalized meal plans based on the user's dietary preferences, health goals, and food allergies, if any. The app will also track the user's progress and provide recommendations to improve their diet.
-
-The app will help users make informed decisions about their food choices, improve their eating habits, and achieve their dietary goals. By using AI and computer vision, the app will provide accurate and reliable information to the users, making it easier for them to maintain a healthy diet.
 ## Solution
-Our solution will be a mobile application that utilizes Firebase, computer vision using TensorFlow, and ChatGPTs APIs to help users achieve their dietary goals. The app will have the following features:
+Our product will have the following features:
 
 ### 1. Automated Work Allocation: Algorithm-based system intelligently assigns tasks to employees based on expertise and workload.
 
@@ -71,8 +68,8 @@ Furthermore, for hosting our project, we chose Railway. Railway is a cloud platf
  
    <br>
    <div style="display:flex;">
-    <img src="flutter_03.jpeg" alt="Screenshot" width="33%">
-    <img src="flutter_04.jpeg" alt="Screenshot" width="33%">
+    <img src="pic_2.jpg" alt="Screenshot" width="33%">
+    <img src="pic_3.jpg" alt="Screenshot" width="33%">
     <br>
    </div>
 # TECH STACKS USED
@@ -93,6 +90,4 @@ Furthermore, for hosting our project, we chose Railway. Railway is a cloud platf
   
 </h3>
 
-# Backend Repo
-The Django Backend we used in this project [Django REST API](https://github.com/KevinOommen/HackSrm-Backend).
 
