@@ -70,8 +70,10 @@ Furthermore, for hosting our project, we chose Railway. Railway is a cloud platf
    <div style="display:flex;" align="center">
     <img src="pic_2.jpg" alt="Screenshot" width="33%">
     <br>
+     <h3>Telegram</h3>
+     <br>
    </div>
-      <div style="display:flex;">
+      <div style="display:flex;" align="center">
     <img src="pic_3.jpg" alt="Screenshot" width="33%">
     <br>
    </div>
