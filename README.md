@@ -36,7 +36,7 @@ This project was created for GTA-CodeStorm by Team Mark-10
   <img src="pic_1.jpg" alt="Screenshot" width="33%" />
 </div>
 
-
+<a href="https://www.youtube.com/watch?v=WWG3dgI1FbE&list=LL&index=6">Video presentation of Alloc.AI👈</a>click here
 ## The Problem We Solve: Revolutionizing Work Efficiency and Collaboration, Byte by Byte.
 Addressing Inefficient Work Allocation and Communication: Many businesses face difficulties in effectively assigning tasks, tracking work progress, and maintaining transparent communication among team members. This can result in missed deadlines, unclear priorities, and reduced productivity. Moreover, managers struggle to evaluate employees' performance based on incomplete or outdated information. Our solution aims to automate and optimize task allocation, provide real-time work status updates, and facilitate seamless communication, ultimately enhancing collaboration and productivity within teams."
 
