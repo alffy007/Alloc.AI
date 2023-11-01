@@ -22,7 +22,7 @@ const Minutespage = () => {
       };
 
     return (
-        <div className="bg-[#000000] flex min-h-screen w-full">
+        <div className="bg-[#010101] flex min-h-screen w-full">
 
             <div
                 className="flex w-full flex-col bg-slate-100 sm:w-64 m-4 rounded-3xl p-2"
